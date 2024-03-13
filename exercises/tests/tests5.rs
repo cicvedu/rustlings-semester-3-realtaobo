@@ -7,6 +7,9 @@
 // the content of the contract cannot be expressed only by a single keyword.
 // Hence, its your responsibility to manually state it in the `# Safety`
 // section of your documentation comment on the item.
+// 中文：Rust 中的 `unsafe` 关键字用于声明一个合约。
+// 当 `unsafe` 标记在一个项的声明上时，比如函数、特性等，它声明了一个合约。
+// 然而，合约的内容不能仅仅通过一个关键字来表达。因此，你需要在项的文档注释的 `# Safety` 部分手动声明它。
 //
 // When `unsafe` is marked on a code block enclosed by curly braces,
 // it declares an observance of some contract, such as the validity of some
@@ -22,8 +25,6 @@
 // Execute `rustlings hint tests5` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
-
 /// # Safety
 ///
 /// The `address` must contain a mutable reference to a valid `u32` value.
@@ -31,8 +32,10 @@ unsafe fn modify_by_address(address: usize) {
     // TODO: Fill your safety notice of the code block below to match your
     // code's behavior and the contract of this function. You may use the
     // comment of the test below as your format reference.
+    // 中文：填写下面代码块的安全声明，以匹配你的代码行为和这个函数的合约。你可以使用下面测试的注释作为格式参考。
     unsafe {
-        todo!("Your code goes here")
+        let ptr = address as *mut u32;
+        *ptr = 0xAABBCCDD;
     }
 }
 
